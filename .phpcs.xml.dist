@@ -12,12 +12,12 @@
     <arg name="parallel" value="8"/>
 
     <rule ref="WordPress">
-        <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
+        <!-- <exclude name="WordPress.PHP.YodaConditions.NotYoda"/> -->
         <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
         <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
-        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
-        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <!-- <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+        <exclude name="Squiz.Commenting.FileComment.Missing"/> -->
     </rule>
-
-    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="PHPCompatibility"/>
+    <!-- <rule ref="Generic.Arrays.DisallowLongArraySyntax"/> -->
 </ruleset>
