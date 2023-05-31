@@ -397,7 +397,7 @@ function ajax_disqo_blog_posts() {
                         <ul>
                             <?php foreach( $products as $k => $val ) : $k = $k + 1; ?>
                             <li>
-                                <div class="fitem-check"><input class="fitem-ck-input" type="checkbox" id="products-<?php _e($k); ?>" noname="filter" value="<?php _e($val); ?>"><label  tabindex="<?php echo $k ?>" for="products-<?php _e($k); ?>" class="fitem-ck-txt"><?php _e($val); ?></label></div>
+                                <div class="fitem-check"><input class="fitem-ck-input" type="checkbox" id="products-<?php _e($k); ?>" noname="filter" value="<?php _e($val); ?>"><label  tabindex="<?php echo $k; ?>" for="products-<?php _e($k); ?>" class="fitem-ck-txt"><?php _e($val); ?></label></div>
                             </li>
                             <?php endforeach ?>
                         </ul>
