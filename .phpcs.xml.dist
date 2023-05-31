@@ -2,8 +2,7 @@
 <ruleset name="Coding Style Checks">
     <description>Coding Style Checks.</description>
 
-    <file>plugin-foo.php</file>
-    <file>src</file>
+    <file>code</file>
 
     <arg value="sp"/>
     <arg name="basepath" value="./"/>
