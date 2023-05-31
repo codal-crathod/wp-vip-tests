@@ -3,7 +3,7 @@
     <description>Coding Style Checks.</description>
 
     <file>code/wp-content/plugins/elementor-addon</file>
-    <file>code/wp-content/themse/hello-theme-child</file>
+    <file>code/wp-content/themes/hello-theme-child</file>
 
     <arg value="sp"/>
     <arg name="basepath" value="./"/>
