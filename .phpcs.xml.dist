@@ -2,7 +2,8 @@
 <ruleset name="Coding Style Checks">
     <description>Coding Style Checks.</description>
 
-    <file>code</file>
+    <file>code/plugins/elementor-addon</file>
+    <file>code/themse/hello-theme-child</file>
 
     <arg value="sp"/>
     <arg name="basepath" value="./"/>
