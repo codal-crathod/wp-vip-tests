@@ -1,5 +1,5 @@
 <?php
-/**
+/***
  * The template for displaying search results.
  *
  * @package HelloElementor
