@@ -384,12 +384,7 @@ function ajax_disqo_blog_posts() {
                 <span><img src="<?php echo PLUGIN_URL_DISQO ?>/assets/images/circle-2.png"><?php _e("Filters") ?></span>
             </a>
         </div>
-        <?php 
-
-        $xyz; 
-        $s = array($xyz);
-        ?>
-        <div data-xyz="<?php echo $xyz; ?>"></div>
+       
         <div class="main-sfilter">
             <form class="inner-sfilter" action="<?php echo home_url( get_post_field( 'post_name', $page_id ) ); ?>">
                 <input type="<?php echo get_post_field( 'post_name', $page_id ) == 'sample-page' ? 'text' : 'hidden' ?>" name="filter" class="filters">
