@@ -1,0 +1,25 @@
+name: WPCS check
+on:
+  push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  phpcs:
+      name: VIPCS
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: VIPCS check
+          uses: 10up/wpcs-action@stable
+          with:
+            standard: 'WordPress-VIP-Go'
+            extra_args: '--report-json=./phpcs.json'
+        - name: Update summary
+          run: |
+            npm i -g github:10up/phpcs-json-to-md
+            phpcs-json-to-md --path ./phpcs.json --output ./phpcs.md
+            cat phpcs.md >> $GITHUB_STEP_SUMMARY
+          if: always()

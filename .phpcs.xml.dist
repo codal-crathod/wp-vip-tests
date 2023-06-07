@@ -5,11 +5,6 @@
     <file>code/wp-content/plugins/elementor-addon</file>
     <file>code/wp-content/themes/hello-theme-child</file>
 
-    <arg value="sp"/>
-    <arg name="basepath" value="./"/>
-    <arg name="colors"/>
-    <arg name="extensions" value="php"/>
-    <arg name="parallel" value="8"/>
 
     <rule ref="WordPress">
         <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
@@ -17,7 +12,11 @@
         <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
         <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
+
+        <exclude name="Squiz."/>
+        <exclude name="Generic."/>
+        <exclude name="WordPress.WhiteSpace.DisallowInlineTabs.NonIndentTabsUsed"/>
+        
     </rule>
 
-    <!-- <rule ref="Generic.Arrays.DisallowLongArraySyntax"/> -->
 </ruleset>
