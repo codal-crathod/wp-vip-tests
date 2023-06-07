@@ -1,15 +1,10 @@
 <?xml version="1.0"?>
-<ruleset name="WordPress VIP CRATHOD">
+<ruleset name="WordPress VIP CRATHOD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
     <description>WordPress VIP by crathod.</description>
 
     <file>code/wp-content/plugins/elementor-addon</file>
     <file>code/wp-content/themes/hello-theme-child</file>
 
-    <arg value="sp"/>
-    <arg name="basepath" value="./"/>
-    <arg name="colors"/>
-    <arg name="extensions" value="php"/>
-    <arg name="parallel" value="8"/>
 
     <rule ref="WordPress">
         <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
