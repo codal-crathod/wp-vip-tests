@@ -26,3 +26,5 @@ jobs:
             --workdir "/app" \
             php:7-cli \
             bash -c "php -d memory_limit=1G /app/vendor/bin/phpcs -s --standard=/app/.phpcs.xml.dist"
+      - name: Show PHPCS results in PR
+        run: cs2pr ./phpcs-report.xml

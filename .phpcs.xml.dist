@@ -18,6 +18,9 @@
         <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
         <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        
+        <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
+        <exclude name="Squiz.Operators.ValidLogicalOperators.NotAllowed" />
     </rule>
 
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
