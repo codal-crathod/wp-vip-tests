@@ -12,7 +12,11 @@
         <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
         <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
+
+        <exclude name="Squiz."/>
+        <exclude name="Generic."/>
+        <exclude name="WordPress.WhiteSpace.DisallowInlineTabs.NonIndentTabsUsed"/>
+        
     </rule>
 
-    <!-- <rule ref="Generic.Arrays.DisallowLongArraySyntax"/> -->
 </ruleset>
