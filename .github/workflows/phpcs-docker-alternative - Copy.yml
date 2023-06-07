@@ -25,4 +25,4 @@ jobs:
             -v "${GITHUB_WORKSPACE}:/app" \
             --workdir "/app" \
             php:7-cli \
-            bash -c "phpcs --standard=WordPress-VIP-Go -sp --basepath=. --ignore=vendor ."
+            bash -c "phpcs --standard=WordPress-VIP-Go -sp --basepath=. --ignore=vendor"
