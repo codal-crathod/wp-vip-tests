@@ -1,27 +1,60 @@
 <?xml version="1.0"?>
-<ruleset name="WordPress VIP CRATHOD" >
+<ruleset name="WordPress VIP CRATHOD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
     <description>WordPress VIP by crathod.</description>
 
+    <!-- ** WHAT TO SCAN ** -->
     <file>code/wp-content/plugins/elementor-addon</file>
     <file>code/wp-content/themes/hello-theme-child</file>
-
-
     <arg value="sp"/>
     <arg name="basepath" value="./"/>
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
     <arg name="parallel" value="8"/>
 
+    <!-- ** HOW TO SCAN ** -->
+
+    <arg value="sp"/><!-- Show sniff and progress -->
+    <arg name="colors"/><!-- Show results with colors -->
+    <arg name="parallel" value="50"/><!-- Enables parallel processing when available for faster results. -->
+    <arg name="extensions" value="php"/><!-- Limit to PHP files -->
+
+    <!-- Rules: Check PHP version compatibility - see https://github.com/PHPCompatibility/PHPCompatibilityWP -->
+    <rule ref="PHPCompatibility"/>
+    <config name="testVersion" value="7.2"/>
+    <config name="minimum_supported_wp_version" value="5.0"/>
+
     <rule ref="WordPress">
-        <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
-        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
-        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
-        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+    </rule>
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array" value="wp-seo-crawler" />
+        </properties>
+    </rule>
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array" value="DevWael,wpseoc" />
+        </properties>
+    </rule>
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false" />
+        </properties>
+    </rule>
+    <rule ref="WordPress-Docs">
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
-        
-        <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
-        <exclude name="Squiz.Operators.ValidLogicalOperators.NotAllowed" />
+        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+        <exclude name="Squiz.Commenting.ClassComment.Missing"/>
     </rule>
 
-    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <!-- Rules: WordPress Coding Standards - see
+        https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
+        WordPress-Extra includes WordPress-Core -->
+    <rule ref="WordPress-Extra">
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
+    </rule>
+
+    <!-- Enforce short array syntax: `[]` in place of `array()`. -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 </ruleset>
