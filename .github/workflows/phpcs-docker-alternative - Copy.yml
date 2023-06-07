@@ -25,4 +25,4 @@ jobs:
             -v "${GITHUB_WORKSPACE}:/app" \
             --workdir "/app" \
             php:7-cli \
-            bash -c "phpcs --standard=WordPress-VIP-Go -sp --basepath=. --ignore=vendor"
+            bash -c "php -d memory_limit=1G /app/vendor/bin/phpcs -s --standard=/app/.phpcs.xml.dist"
