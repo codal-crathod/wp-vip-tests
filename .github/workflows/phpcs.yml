@@ -1,21 +1,29 @@
-name: WordPress Coding Standards check
+name: PHPCS check
+on:
+  push
 
-on: pull_request
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   phpcs:
-      name: WPCS
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: WordPress Coding Standards check
-          uses: 10up/wpcs-action@stable
-          with:
-            enable_warnings: false # Enable checking for warnings (-w)
-            paths: '.' # Paths to check, space separated
-            excludes: '' # Paths to excludes, space separated
-            standard: 'WordPress' # Standard to use. Accepts WordPress|WordPress-Core|WordPress-Docs|WordPress-Extra|WordPress-VIP-Go|WordPressVIPMinimum.
-            standard_repo: '' # Public (git) repository URL of the coding standard
-            repo_branch: 'main' # Branch of Standard repository
-            phpcs_bin_path: 'phpcs' # Custom PHPCS bin path
-            use_local_config: 'true' # Use local config if available
+    name: PHPCS
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "7.4"
+          ini-values: "memory_limit=1G"
+          coverage: none
+          tools: cs2pr
+      - name: Install Composer dependencies
+        uses: "ramsey/composer-install@v2"
+      - name: Run PHPCS checks
+        continue-on-error: true
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
+      - name: Show PHPCS results in PR
+        run: cs2pr ./phpcs-report.xml

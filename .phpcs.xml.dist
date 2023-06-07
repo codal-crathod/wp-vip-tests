@@ -6,6 +6,12 @@
     <file>code/wp-content/themes/hello-theme-child</file>
 
 
+    <arg value="sp"/>
+    <arg name="basepath" value="./"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="8"/>
+
     <rule ref="WordPress">
         <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
         <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
@@ -14,5 +20,5 @@
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
     </rule>
 
-    <!-- <rule ref="Generic.Arrays.DisallowLongArraySyntax"/> -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 </ruleset>
