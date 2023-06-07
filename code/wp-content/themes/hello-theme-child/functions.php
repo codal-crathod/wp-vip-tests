@@ -567,7 +567,7 @@ function ajax_disqo_search() {
 		$stack_page = array_slice( $stack, $offset, $limit );
 		?>
 
-		<div class="search-list" data-total-page="<?php echo isset($total) ? $total : '0'; ?>">
+		<div class="search-list" data-total-page="<?php echo isset($total) ? $total : ''; ?>">
 			<?php
 			/**
 			 * Display the search data.
