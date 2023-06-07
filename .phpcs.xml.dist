@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Coding Style Checks">
-    <description>Coding Style Checks.</description>
+<ruleset name="WordPress VIP CRATHOD">
+    <description>WordPress VIP by crathod.</description>
 
     <file>code/wp-content/plugins/elementor-addon</file>
     <file>code/wp-content/themes/hello-theme-child</file>
